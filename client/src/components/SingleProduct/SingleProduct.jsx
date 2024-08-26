@@ -16,6 +16,7 @@ const SingleProduct = () => {
         state.cart.find((item) => item.id === parseInt(id))
     );
 
+
     useEffect(() => {
         const getSingleProduct = async () => {
             try {

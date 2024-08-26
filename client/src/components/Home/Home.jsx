@@ -1,27 +1,24 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Category from "../Categeroy/Categeroy";
+import List from "../../api/List.json";
+import Category from "../Categeroy/Categeroy"; 
 import Product from "../Product/Product";
 import Banner from "./Banner/Banner";
 
 const Home = () => {
-    const [filterItem, setFilterItem] = useState("electronics"); 
+    const [filterItem, setFilterItem] = useState(""); 
     const [products, setProducts] = useState([]);
 
-    // Fetch Products based on category
-    const fetchProductsByCategory = async (category) => {
-        try {
-            const res = await axios.get(
-                `https://fakestoreapi.com/products/category/${category}`
-            );
-            setProducts(res.data);
-        } catch (error) {
-            console.log(error);
-        }
+    const getProductsByCategory = (category) => {
+        const items = List.filter((elem) => elem.category === category);
+        setProducts(items);
     };
 
     useEffect(() => {
-        fetchProductsByCategory(filterItem);
+        if (filterItem) {
+            getProductsByCategory(filterItem);
+        } else {
+            setProducts(List); 
+        }
     }, [filterItem]);
 
     const handleFilter = (category) => {
@@ -32,7 +29,7 @@ const Home = () => {
         <div className="home">
             <Banner />
             <Category handleFilter={handleFilter} />
-            <Product filterItem={filterItem} />
+            <Product products={products} />
         </div>
     );
 };

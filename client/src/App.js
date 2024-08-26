@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 
-function App() {
+function App() {   
     return (
         <div className="App">
             <Header />

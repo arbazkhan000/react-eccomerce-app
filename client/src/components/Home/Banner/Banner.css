@@ -17,10 +17,10 @@
     overflow: hidden;
     margin: 0 auto;
     text-align: center;
-    flex-direction: column; /* Default to column on small screens */
+    flex-direction: column;
 
     @media only screen and (min-width: 640px) {
-        flex-direction: row; /* Change to row on larger screens */
+        flex-direction: row;
     }
 }
 
@@ -37,7 +37,7 @@
 }
 
 p {
-    font-size: 10vw; /* Responsive font size */
+    font-size: 10vw;
     margin: 0;
 }
 
@@ -47,7 +47,7 @@ p {
     justify-content: center;
     gap: 10px;
 
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 button {
@@ -55,12 +55,12 @@ button {
     border: none;
     cursor: pointer;
     background-color: white;
-    color: black;
+    color: #212121;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: black;
+        background-color: #212121;
         color: white;
     }
 }

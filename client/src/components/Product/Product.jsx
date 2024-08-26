@@ -1,32 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useNavigate } from "react-router-dom";
 import "./Product.css";
 
-const Product = ({ filterItem }) => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    const fetchProducts = async () => {
-        try {
-            const res = await axios.get(
-                `https://fakestoreapi.com/products/category/${filterItem}`
-            );
-            setProducts(res.data);
-        } catch (error) {
-            console.error("Error fetching products:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchProducts();
-    }, [filterItem]);
-
+const Product = ({ products }) => {
     const navigate = useNavigate();
+
     const handleProductClick = (id) => {
         navigate(`/product/${id}`);
     };
@@ -34,12 +14,8 @@ const Product = ({ filterItem }) => {
     return (
         <div className="product-section">
             <div className="product-box">
-                {loading ? (
-                    <>
-                        <Skeleton height={250} width={200} />
-                        <Skeleton height={250} width={200} />
-                        <Skeleton height={250} width={200} />
-                    </>
+                {products.length === 0 ? (
+                    <Skeleton count={3} height={250} width={200} />
                 ) : (
                     products.map((elem) => (
                         <div
