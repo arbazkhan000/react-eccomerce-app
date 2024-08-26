@@ -1,0 +1,114 @@
+/* Default styles (Large devices) */
+.card-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.master-container {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; */
+    height: 400px;
+}
+
+.card {
+    padding: 1rem;
+    width: 500px;
+    background: #ffffff;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01),
+        0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09),
+        0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.quantity-label {
+    font-size: 18px;
+
+    padding: 5px;
+}
+.quantity-label:hover {
+    background-color: black;
+    color: white;
+}
+
+.quantity-input {
+    width: 30px;
+    text-align: center;
+}
+.price {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.empty-text {
+    text-align: center;
+    margin-top: 20px;
+
+    font-size: 20px;
+}
+/* Small devices (600px and down) */
+@media only screen and (max-width: 600px) {
+    .master-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .cart .products .product {
+        grid-template-columns: 50px 1fr 60px;
+        gap: 5px;
+    }
+
+    .checkout .details {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .checkout .checkout--footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .checkout .checkout-btn {
+        width: 100%;
+        background-color: black;
+    }
+    .checkout-btn:hover {
+        color: black;
+    }
+}
+
+/* Medium devices (601px to 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .master-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .cart .products .product {
+        grid-template-columns: 60px 1fr 70px;
+        gap: 10px;
+    }
+
+    .checkout .details {
+        grid-template-columns: 2fr 1fr;
+    }
+}
